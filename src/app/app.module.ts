@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { EmpresasCadastroComponent } from './empresas-cadastro/empresas-cadastro.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'empresas-consulta' },
   { path: 'empresas-cadastro', component: EmpresasCadastroComponent },
   { path: 'empresas-consulta', component: EmpresasConsultaComponent },
-  { path: 'empresas-edicao', component: EmpresasEdicaoComponent }
+  { path: 'empresas-edicao/:idEmpresa', component: EmpresasEdicaoComponent }
 ];
 
 @NgModule({
@@ -28,7 +29,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
