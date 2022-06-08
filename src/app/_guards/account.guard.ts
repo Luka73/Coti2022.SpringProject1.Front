@@ -10,12 +10,15 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class AccountGuard implements CanActivate {
     canActivate() {
-        if(localStorage.getItem('access_token') == null 
-        || localStorage.getItem('email-user') == null) {
-            return true;
-        } else {
-            window.location.href = '/empresas-consulta'
-            return false;
-        }
+           //REGRA: Só acessar se o usuário NÃO estiver autenticado
+           if (localStorage.getItem('access_token') == null
+           || localStorage.getItem('email_user') == null) {
+           return true;
+       }
+       else {
+           window.location.href = '/empresas-consulta';
+           return false;
+       }
+
     }
 }

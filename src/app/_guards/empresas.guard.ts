@@ -14,7 +14,7 @@ export class EmpresasGuard implements CanActivate {
  
         //REGRA: Só acessar se o usuário ESTIVER autenticado
         if (localStorage.getItem('access_token') != null
-            && localStorage.getItem('email_usuario') != null) {
+            && localStorage.getItem('email_user') != null) {
             return true;
         }
         else {
